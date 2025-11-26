@@ -1,5 +1,3 @@
-"_comment Optional: VS Code Task Configuration for Easy Multi-Terminal Management"
-
 {
   "version": "2.0.0",
   "tasks": [
