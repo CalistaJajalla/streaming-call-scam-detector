@@ -8,7 +8,7 @@ source kafka-env/bin/activate  # Windows: kafka-env\Scripts\activate
 pip install aiokafka kafka-python scikit-learn pandas numpy joblib streamlit
 ```
 
-2. Start Kafka Environment with Docker Compose
+## 2. Start Kafka Environment with Docker Compose
 
 Inside docker-compose.yml, write the following:
 ```bash
@@ -41,7 +41,7 @@ Then, run Kafka stack:
 docker compose up -d
 ```
 
-3. Train the ML Model
+## 3. Train the ML Model
 
 Run trainer.py to generate synthetic call data and train the KNN model. Output is saved as knn_model.joblib.
 
@@ -49,7 +49,7 @@ Run trainer.py to generate synthetic call data and train the KNN model. Output i
 python trainer.py
 ```
 
-4. Run Application Components
+## 4. Run Application Components
 
 Open 3 separate terminal windows and run the following files
 
