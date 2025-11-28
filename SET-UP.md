@@ -17,6 +17,7 @@ streaming-call-scam-detector/
 ├── trainer.py
 ├── producer.py
 ├── processor.py
+├── requirements.txt
 ├── streamlit_app.py
 └── SETUP.md
 ```
