@@ -14,7 +14,27 @@ Built with Kafka • Machine Learning • Real-time Streaming <br>
 <hr style="border-color:#444;">
 """, unsafe_allow_html=True)
 
-# Load sample CSV (make sure you add this file to your repo)
+<div style="
+    background-color:#2c2c2c; 
+    padding:20px; 
+    border-radius:10px; 
+    margin-bottom:20px;
+    color:#ccc;
+    font-size: 15px;
+    line-height: 1.5;
+">
+    <h3 style="color:#58a6ff; margin-bottom:10px;">ℹ Instructions & Disclaimer</h3>
+    <ul style="padding-left:20px; margin-top:0;">
+        <li>Hello! This dashboard shows sample predictions of scam calls inspired by streaming data.</li>
+        <li>The full real-time streaming setup is currently running locally and being migrated to the cloud.</li>
+        <li>Data refreshes every few seconds. Use the sidebar slider to adjust the refresh interval.</li>
+        <li>Displayed data reflects how live predictions typically appear, with updates occurring regularly.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
+
+
+# Load sample CSV 
 df = pd.read_csv("sample_calls_scored.csv")
 
 # Process dataframe as in original prepare_df()
