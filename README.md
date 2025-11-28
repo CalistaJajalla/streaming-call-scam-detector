@@ -56,7 +56,7 @@ flowchart TD
 
 ## How to Use the Streamlit website?
 
-![Interactive Dashboard](./media/stream_demo.gif)
+![Interactive Dashboard](./stream_demo.gif)
 
 The dashboard auto-refreshes and shows live predictions from the streaming pipeline.
 
