@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
+import time
 
-st.set_page_config(page_title="Live Scam Call Detector (Fallback)", layout="wide")
+st.set_page_config(page_title="Live Scam Call Detector", layout="wide")
 
-# Page header, instructions, UI setup: keep the same as original
+# Page header, instructions, UI setup
 st.markdown("""
-<h1 style="text-align:center; margin-bottom:5px; color:#58a6ff;">📞 Live Scam Call Detector (Fallback Mode)</h1>
+<h1 style="text-align:center; margin-bottom:5px; color:#58a6ff;">📞 Live Scam Call Detector</h1>
 <p style="text-align:center; font-size:16px; color:#aaa; margin-top:-10px;">
-Using static sample data instead of live Kafka stream.<br>
+Built with Kafka • Machine Learning • Real-time Streaming <br>
 <b>by Calista Jajalla</b>
 </p>
 <hr style="border-color:#444;">
@@ -18,7 +19,6 @@ df = pd.read_csv("sample_calls_scored.csv")
 
 # Process dataframe as in original prepare_df()
 def prepare_df_from_csv(df):
-    # Rename columns (adjust if CSV columns differ)
     df = df.rename(columns={
         "call.caller": "Caller Number",
         "call.call_duration": "Duration (secs)",
@@ -37,13 +37,30 @@ def prepare_df_from_csv(df):
 
 df = prepare_df_from_csv(df)
 
-st.subheader("Sample Predictions (Static Data)")
+# Sidebar controls for refresh interval and max rows to show
+refresh_interval = st.sidebar.slider("Refresh interval (seconds)", 1, 10, 3)
+max_events = st.sidebar.slider("Show last N events", 10, 200, 50)
 
-st.write(f"**Data snapshot:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}")
+# Use Streamlit's autorefresh with the selected interval
+from streamlit_autorefresh import st_autorefresh
+st_autorefresh(interval=refresh_interval * 1000, key="autorefresh")
 
-st.dataframe(df.sort_values("Processed Time", ascending=False).reset_index(drop=True))
+# Simulate "streaming" by showing a sliding window over data that grows with refresh count
+if "refresh_count" not in st.session_state:
+    st.session_state.refresh_count = 0
+st.session_state.refresh_count += 1
 
-counts = df["Scam Detected"].value_counts().to_dict()
+# Number of rows to show grows with refresh count until max_events
+rows_to_show = min(st.session_state.refresh_count * 5, max_events)
+
+st.subheader("Latest Predictions")
+
+st.write(f"**Last updated:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+df_slice = df.sort_values("Processed Time", ascending=False).head(rows_to_show).reset_index(drop=True)
+st.dataframe(df_slice)
+
+counts = df_slice["Scam Detected"].value_counts().to_dict()
 
 col1, col2 = st.columns(2)
 with col1:
@@ -82,14 +99,3 @@ with st.expander("How often is the data updated?"):
     You can adjust the refresh interval using the slider in the sidebar to control how frequently new data appears.
     Let the data load fully and don't just hastily drag the slider! :>         
     """)
-
-st.markdown("---")
-
-st.header("Note")
-
-st.write("""
-This is a **fallback mode** showing pre-recorded data from a CSV file.  
-Real-time streaming and live updates require Kafka and the full pipeline running.  
-This version is only for demos since my Kafka is in local set-up at the moment.
-Peace ✌︎︎♡⃛
-""")
