@@ -2,6 +2,8 @@
 
 A real-time streaming pipeline simulating phone call events, processing them with machine learning to detect scam calls, and displaying results on a live Streamlit dashboard.
 
+![Live Scam Call Detector dashboard showing real-time updating predictions of scam and non-scam calls with interactive metrics and filters](path/to/Stream_Demo.gif)
+
 ---
 
 ## About the Project
