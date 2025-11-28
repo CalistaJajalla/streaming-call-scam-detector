@@ -1,4 +1,4 @@
-# Live Scam Call Detector by Calista Jajalla
+# 📞 Live Scam Call Detector by Calista Jajalla ᓚᘏᗢ
 
 This guide helps set up the full streaming pipeline.
 
@@ -437,6 +437,8 @@ with st.expander("How often is the data updated?"):
     Let the data load fully and don't just hastily drag the slider! :>         
     """)
 ```
+
+Then, run this in your terminal:
 
 ```bash
 streamlit run streamlit_app.py
