@@ -563,7 +563,8 @@ st.header("Note")
 st.write("""
 This is a **fallback mode** showing pre-recorded data from a CSV file.  
 Real-time streaming and live updates require Kafka and the full pipeline running.  
-Use this version for easy demos or when you don't have access to Kafka.
+This version is only for demos since my Kafka is in local set-up at the moment.
+Peace ✌︎︎♡⃛
 """)
 ```
 
