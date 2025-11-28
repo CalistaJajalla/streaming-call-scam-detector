@@ -36,13 +36,13 @@ The goal is to showcase real-time event streaming, ML inference, and interactive
 
 ```mermaid
 flowchart TD
-    trainer[trainer.py\nTrain KNN Model]
-    knn_model["knn_model.joblib\n(Model File)"]
-    producer[producer.py\nSimulated Call Data Producer]
-    kafka_raw["Kafka Topic\ncalls_raw"]
-    processor[processor.py\nML Prediction Processor]
-    kafka_scored["Kafka Topic\ncalls_scored"]
-    streamlit[streamlit_app.py\nDashboard UI]
+    trainer[trainer.py<br>Train KNN Model]
+    knn_model["knn_model.joblib<br>(Model File)"]
+    producer[producer.py<br>Simulated Call Data Producer]
+    kafka_raw["Kafka Topic<br>calls_raw"]
+    processor[processor.py<br>ML Prediction Processor]
+    kafka_scored["Kafka Topic<br>calls_scored"]
+    streamlit[streamlit_app.py<br>Dashboard UI]
 
     trainer --> knn_model
     producer --> kafka_raw
