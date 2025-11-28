@@ -1,4 +1,4 @@
-# Live Scam Call Detector
+# Live Scam Call Detector by Calista Jajalla
 
 This guide helps set up the full streaming pipeline.
 
