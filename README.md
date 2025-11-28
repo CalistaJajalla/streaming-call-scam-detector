@@ -2,7 +2,7 @@
 
 A real-time streaming pipeline simulating phone call events, processing them with machine learning to detect scam calls, and displaying results on a live Streamlit dashboard.
 
-![Live Scam Call Detector dashboard showing real-time updating predictions of scam and non-scam calls with interactive metrics and filters](path/to/Stream_Demo.gif)
+![Streamlit Banner](./media/stream_banner.png)
 
 ---
 
@@ -56,6 +56,8 @@ flowchart TD
 
 ## How to Use the Streamlit website?
 
+![Interactive Dashboard](./media/stream_demo.gif)
+
 The dashboard auto-refreshes and shows live predictions from the streaming pipeline.
 
 Columns displayed include:
@@ -67,6 +69,8 @@ Columns displayed include:
 - Scam (1) / Not (0): Model prediction label
 - Processed Timestamp: When the event was processed
 
+Here’s the Streamlit demo:
+https://appappfallbackpy-52v8ru6ga98qsxswauscgd.streamlit.app/
 
 ## Next Steps / Recommendations
 
