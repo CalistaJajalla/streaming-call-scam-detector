@@ -12,7 +12,6 @@ Built with Kafka • Machine Learning • Real-time Streaming <br>
 <b>by Calista Jajalla</b>
 </p>
 <hr style="border-color:#444;">
-""", unsafe_allow_html=True)
 
 <div style="
     background-color:#2c2c2c; 
@@ -32,7 +31,6 @@ Built with Kafka • Machine Learning • Real-time Streaming <br>
     </ul>
 </div>
 """, unsafe_allow_html=True)
-
 
 # Load sample CSV 
 df = pd.read_csv("sample_calls_scored.csv")
